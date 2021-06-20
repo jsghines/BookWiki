@@ -1,0 +1,31 @@
+Frontend:
+    Sidebar nav
+    Top bar search/account
+    Add Wiki entry button
+    Add Wiki entry form
+        Category select box
+            - New Category
+            - *List of existing categories
+        Name of entry
+        Mini Summary of entry
+        Description of entry
+            text area
+            ability to link(automatically happen if word = name of other entry)
+            ability to add headings
+        multi select/text box for tags
+    Add main section where wiki entries go
+        mini Summary
+        table of contents
+        collapsable headers
+Backend:
+    postgres db
+        category table
+            id, tag_id
+        entries table
+            id, category_id, entry_name
+        entry subheadings
+            id, subheading_name, entry_id, entry_text
+        tag table
+            id, tag_name, user_id
+        entry tag table
+            id, tag_id, entry_id
