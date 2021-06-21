@@ -1,4 +1,5 @@
 using System;
+using BookWiki.Helpers.Constants;
 using BookWiki.Helpers.Errors;
 
 namespace BookWiki.Domain.Models
@@ -7,12 +8,13 @@ namespace BookWiki.Domain.Models
     {
         public string CategoryName { get; set; }
 
-        public void Validate() 
+        public bool Validate() 
         {
             if(String.IsNullOrWhiteSpace(this.CategoryName))
             {
-                throw new InvalidModelException("Category Name cannot be null or empty");
+                throw new InvalidModelException(ErrorMessaging.CategoryError);
             }
+            return true;
         }
     }
 }

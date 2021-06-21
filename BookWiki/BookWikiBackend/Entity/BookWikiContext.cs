@@ -6,8 +6,6 @@ namespace BookWiki.Entity
 {
     public class BookWikiContext : DbContext
     {
-        public BookWikiContext()
-        {}
         public BookWikiContext(DbContextOptions<BookWikiContext> options) : base(options)
         {}
         public DbSet<CategoryRecord> Category { get; set; }
