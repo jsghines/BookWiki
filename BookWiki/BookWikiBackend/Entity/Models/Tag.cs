@@ -8,6 +8,7 @@ namespace BookWiki.Entity.Models
 {
     public class TagRecord : IUserRecord
     {
+      [Required]
       public string TagName { get; set; }  
     } 
 }

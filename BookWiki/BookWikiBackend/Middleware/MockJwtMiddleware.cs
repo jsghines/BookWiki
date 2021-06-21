@@ -16,7 +16,7 @@ namespace WebApi.Helpers
     {
         private readonly RequestDelegate _next;
 
-        public JwtMiddleware(RequestDelegate next)
+        public MockJwtMiddleware(RequestDelegate next)
         {
             _next = next;
         }
@@ -32,7 +32,7 @@ namespace WebApi.Helpers
         {
             try
             {
-                context.Items["User"] = "jhines";
+                context.Items["UserId"] = "358b2b50-176f-4328-9176-858477d7e6b7";
             }
             catch
             {

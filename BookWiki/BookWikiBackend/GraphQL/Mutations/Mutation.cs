@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using BookWiki.Domain;
 using BookWiki.Domain.Models;
@@ -16,6 +17,7 @@ namespace BookWiki.GraphQL.Queries.Mutations
             { 
                 CategoryName = categoryName
             };
+            categoryItem.Validate();
             await category.Add(categoryItem);
             return categoryItem;
         }

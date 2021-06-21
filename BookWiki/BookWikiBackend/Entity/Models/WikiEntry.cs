@@ -9,6 +9,7 @@ namespace BookWiki.Entity.Models
     public class WikiEntryRecord : IRecord
     {
         public CategoryRecord Category { get; set; }
+        [Required]
         public string EntryName { get; set; }
     } 
 }

@@ -1,3 +1,5 @@
+using BookWiki.Domain;
+using BookWiki.Domain.Models;
 using BookWiki.Entity;
 using BookWiki.Entity.Models;
 using HotChocolate;
@@ -16,7 +18,7 @@ namespace BookWiki.GraphQL.Queries
     {
         [UseFiltering]
         [UseSorting]
-        public IQueryable<CategoryRecord> GetCategories([Service] BookWikiContext bookWikiContext) => bookWikiContext.Category.Include(x => x.Tag);
+        public IQueryable<CategoryItem> GetCategories([Service] Category category) => category.Get();
     }
     
 }

@@ -9,5 +9,6 @@ namespace BookWiki.Domain.Abstractions
     interface IDomain<T>
     {
         Task Add(T obj);
+        IQueryable<T> Get();
     }
 }

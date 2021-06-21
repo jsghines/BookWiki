@@ -1,5 +1,7 @@
 using BookWiki.Entity;
+using BookWiki.GraphQL.Filters;
 using BookWiki.GraphQL.Queries;
+using BookWiki.GraphQL.Queries.Mutations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -25,13 +27,19 @@ namespace BookWiki
             services.AddHttpContextAccessor();
             // If you need dependency injection with your query object add your query type as a services.
             // services.AddSingleton<Query>();
-            services.AddPooledDbContextFactory<BookWikiContext>(options =>
+            services.AddDbContextPool<BookWikiContext>(options =>
             {
                 options.UseNpgsql("Host=127.0.0.1;Port=5432;Database=postgres;Username=postgres;Password=password;");
             });
             services
                 .AddGraphQLServer()
-                .AddQueryType<Query>();
+                .AddQueryType<Query>()
+                .AddMutationType<Mutation>()
+                .AddFiltering()
+                .AddErrorFilter<GraphQLErrorFilter>()
+                .AddSorting();
+
+            services.DependencyInject(this.Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
