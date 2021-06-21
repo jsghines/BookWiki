@@ -16,6 +16,7 @@ namespace BookWiki.GraphQL.Queries.Mutations
             { 
                 CategoryName = categoryName
             };
+            categoryItem.Validate();
             await category.Add(categoryItem);
             return categoryItem;
         }

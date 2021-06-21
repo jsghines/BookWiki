@@ -15,5 +15,11 @@ namespace BookWiki.Entity
         public DbSet<WikiEntryRecord> WikiEntry { get; set; }
         public DbSet<WikiEntrySubheadingRecord> WikiEntrySubheading { get; set; }
         public DbSet<WikiEntryTagRecord> WikiEntryTag { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<TagRecord>()
+            .HasIndex(p => new {p.Id , p.TagName}).IsUnique();
+        }
     }
 }

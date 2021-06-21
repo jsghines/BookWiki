@@ -16,7 +16,7 @@ namespace WebApi.Helpers
     {
         private readonly RequestDelegate _next;
 
-        public JwtMiddleware(RequestDelegate next)
+        public MockJwtMiddleware(RequestDelegate next)
         {
             _next = next;
         }

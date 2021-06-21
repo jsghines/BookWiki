@@ -1,4 +1,5 @@
 using BookWiki.Entity;
+using BookWiki.GraphQL.Filters;
 using BookWiki.GraphQL.Queries;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,7 +32,8 @@ namespace BookWiki
             });
             services
                 .AddGraphQLServer()
-                .AddQueryType<Query>();
+                .AddQueryType<Query>()
+                .AddErrorFilter<GraphQLErrorFilter>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
